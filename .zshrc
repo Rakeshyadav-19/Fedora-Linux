@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
+export GEMINI_API_KEY="AIzaSyBq-qvTE7RRHd4jvev83jvhitXMl3zvSLY"
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -8,10 +8,20 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="clean"
 
 # Automatically start tmux if not already inside a tmux session
-if command -v tmux >/dev/null 2>&1; then
-  [ -z "$TMUX" ] && [ -n "$PS1" ] && exec tmux
-fi
+# if command -v tmux >/dev/null 2>&1; then
+#   [ -z "$TMUX" ] && [ -n "$PS1" ] && exec tmux
+# fi
 
+# Auto-attach to a tmux session if not already inside tmux, and only in Kitty
+if [[ -n "$KITTY_WINDOW_ID" ]] && command -v tmux >/dev/null 2>&1; then
+  if [ -z "$TMUX" ]; then
+    (tmux attach-session -t main || tmux new-session -s main)
+    # After tmux exits, close Kitty
+    if [[ -n "$KITTY_WINDOW_ID" ]]; then
+      kitty @ close-window --self
+    fi
+  fi
+fi
 #Custom script for pokemon
 pokemon-colorscripts -r
 
@@ -81,11 +91,14 @@ alias qrg='qrcode-terminal'
 alias fdow='aria2c -x 16 -s 16'
 alias iopen='eog'
 alias iedit='display'
-
+alias peaclock="peaclock --config-dir ~/.config/peaclock"
+alias re="~ && c && source ~/.zshrc"
+alias cls="c && source ~/.zshrc"
 #SCRIPTS
 alias sysup='~/./Fedora-Linux/Scripts/update.sh'
 alias hotscon='~/./Fedora-Linux/Scripts/HotspotConnections.sh'
 alias power-saver='~/Fedora-Linux/Scripts/Power-Saving.sh'
 
 #Directories
-alias project='cd /home/rax/Abyss/Projects/Mini\ Project/Industry'
+alias clg='cd /home/rax/Abyss/B-Tech/All Sems'
+export PATH="${HOME}/.local/bin":${PATH}
