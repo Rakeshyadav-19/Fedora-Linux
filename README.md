@@ -8,16 +8,22 @@ This repository contains handy scripts, tmux configuration, and shell customizat
 ## 📁 Structure
 
 - **pokemon-colorscripts/**  
-  Fun Pokémon-themed terminal color scripts.
+  Pokémon-themed terminal color scripts, installer, and demo images.
 - **Scripts/**  
-  Useful shell scripts for system management:
-  - `update.sh` – One-command system update & cleanup.
-  - `Power-Saving.sh` – Easily toggle GNOME power-saving settings.
-  - `HotspotConnections.sh` – List devices connected to your Wi-Fi hotspot.
+  System management scripts:
+  - `update.sh` – System update & cleanup.
+  - `Power-Saving.sh` – GNOME power-saving toggle.
+  - `HotspotConnections.sh` – List Wi-Fi hotspot devices.
 - **tmux/**  
-  Custom tmux configuration for a productive terminal workflow.
-- **.zshrc**  
-  Zsh configuration with Oh My Zsh, plugins, and aliases.
+  Custom tmux configuration (`.tmux.conf`).
+- **kitty/**  
+  Kitty terminal configuration (`kitty.conf`).
+- **nvim/**  
+  Neovim configuration:
+  - `init.lua`, `lua/` (keymaps, lsp, plugins, theme, options)
+  - `lazy-lock.json` for plugin management
+
+---
 
 ---
 
@@ -38,10 +44,16 @@ chmod +x install.sh
 ```
 
 This will:
-- Install required packages (`tmux`, `zsh`, `figlet`, `eza`, `xclip`, etc.)
+
+- Install required packages (`tmux`, `zsh`, `figlet`, `eza`, `xclip`, `git`)
 - Set up Oh My Zsh and plugins
-- Link configuration files to your home directory
+- Link configuration files to your home directory:
+  - `.zshrc`
+  - `.tmux.conf`
+  - `kitty.conf` (to `~/.config/kitty/`)
+  - `nvim` config (to `~/.config/nvim/`)
 - Make scripts executable
+- Install pokemon-colorscripts
 
 ---
 
@@ -56,12 +68,16 @@ This will:
 
 ---
 
-## 🎨 Terminal Customization
+## 🎨 Terminal & Editor Customization
 
 - **pokemon-colorscripts**  
   Shows a random Pokémon on each terminal start!
 - **tmux**  
-  Modern, mouse-enabled, and visually enhanced tmux config.
+  Modern, mouse-enabled tmux config.
+- **kitty**  
+  Beautiful Kitty terminal theme.
+- **nvim**  
+  Lua-based Neovim config with plugins and LSP.
 
 ---
 
@@ -75,6 +91,8 @@ This will:
 
 - Fedora Linux
 - `tmux`, `zsh`, `figlet`, `eza`, `xclip`, `git`
+- Kitty terminal (for `kitty/kitty.conf`)
+- Neovim (for `nvim/`)
 - GNOME (for power-saving script)
 
 ---
@@ -90,6 +108,8 @@ See [pokemon-colorscripts/LICENSE.txt](pokemon-colorscripts/LICENSE.txt) for Pok
 - [pokemon-colorscripts](https://github.com/aksh1618/pokemon-colorscripts)
 - [Oh My Zsh](https://ohmyz.sh/)
 - [tmux](https://github.com/tmux/tmux)
+- [kitty](https://sw.kovidgoyal.net/kitty/)
+- [neovim](https://neovim.io/)
 
 ---
 

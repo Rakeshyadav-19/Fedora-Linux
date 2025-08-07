@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export $(grep -v '^#' ~/Fedora-Linux/.env | xargs)
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -102,3 +103,5 @@ alias power-saver='~/Fedora-Linux/Scripts/Power-Saving.sh'
 #Directories
 alias clg='cd /home/rax/Abyss/B-Tech/All Sems'
 export PATH="${HOME}/.local/bin":${PATH}
+
+
