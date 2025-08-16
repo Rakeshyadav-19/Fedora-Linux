@@ -25,3 +25,5 @@ vim.opt.undofile = true             -- persistent undo
 vim.opt.showmode = false            -- don't show -- INSERT --
 
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+vim.o.guicursor = "n-v-c:hor20,i-ci-ve:ver25,r-cr:hor20"

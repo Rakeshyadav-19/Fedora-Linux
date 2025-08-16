@@ -7,6 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="clean"
+echo -ne "\e[4 q";
 
 # Automatically start tmux if not already inside a tmux session
 # if command -v tmux >/dev/null 2>&1; then
@@ -95,6 +96,9 @@ alias iedit='display'
 alias peaclock="peaclock --config-dir ~/.config/peaclock"
 alias re="~ && c && source ~/.zshrc"
 alias cls="c && source ~/.zshrc"
+alias t-ai='cd ~/Public/ && gemini'
+alias w-ai='gemini'
+
 #SCRIPTS
 alias sysup='~/./Fedora-Linux/Scripts/update.sh'
 alias hotscon='~/./Fedora-Linux/Scripts/HotspotConnections.sh'
@@ -102,6 +106,10 @@ alias power-saver='~/Fedora-Linux/Scripts/Power-Saving.sh'
 
 #Directories
 alias clg='cd /home/rax/Abyss/B-Tech/All Sems'
+alias project='cd /home/rax/Abyss/Projects/'
+alias sangli='cd /home/rax/Abyss/Projects/Sponsored/Mini/Sai\ Skating\ WebSite/WebSite'
+
+#EXPORTS
 export PATH="${HOME}/.local/bin":${PATH}
 
 
