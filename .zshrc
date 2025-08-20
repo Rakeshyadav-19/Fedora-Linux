@@ -86,6 +86,8 @@ alias ls='eza --icons=auto' # short list
 alias c='clear'
 alias lscreated='ls --sort=created'
 alias pokemon='pokemon-colorscripts -r'
+alias re="c && source ~/.zshrc"
+alias cls="c && pokemon-colorscripts -r"
 
 #APPS
 alias vdow='yt-dlp'
@@ -94,10 +96,7 @@ alias fdow='aria2c -x 16 -s 16'
 alias iopen='eog'
 alias iedit='display'
 alias peaclock="peaclock --config-dir ~/.config/peaclock"
-alias re="~ && c && source ~/.zshrc"
-alias cls="c && source ~/.zshrc"
-alias t-ai='cd ~/Public/ && gemini'
-alias w-ai='gemini'
+alias ai='~/Fedora-Linux/Scripts/AI.sh'
 
 #SCRIPTS
 alias sysup='~/./Fedora-Linux/Scripts/update.sh'
