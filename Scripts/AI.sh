@@ -4,16 +4,19 @@
 show_help() {
     echo "Usage: ai [options] [-m model]"
     echo "Options:"
-    echo "  -a show available AI models"
-    echo "  -t talk with AI in temp/AI folder"
-    echo "  -w Work with ai in current folder"
-    echo "  -m model        Choose model alias (e.g., G, g, gemini)"
+    echo "  -i              Install AI model"
+    echo "  -a              Show available AI models"
+    echo "  -t              Talk with AI in temp/AI folder"
+    echo "  -w              Work with AI in current folder"
+    echo "  -m              Choose model alias:"
+    echo "                  g|G|gemini - Use Gemini"
+    echo "                  q|Q|qodo   - Use Qodo"
+    echo "                  o|O|opencode - Use OpenCode"
     echo "  -h, --help      Show this help message"
     echo "  -v, --version   Show version information"
     echo "Examples:"
-    echo "  ai -a"
-    echo "  ai -t -m G      # Chat in /tmp/AI using Gemini"
-    echo "  ai -w -m g      # Chat in current folder using Gemini"
+    echo "  ai -t -m [<model>]               # Chat in /tmp/AI using AI Model"
+    echo "  ai -w -m [<model>]               # Chat in current folder using AI Model"
 }
 
 # Defaults and state
@@ -23,9 +26,16 @@ target_dir=""      # "/tmp/AI" for -t, "$PWD" for -w
 # Map model alias to command
 resolve_model_cmd() {
     local model_input="$1"
+    
     case "$model_input" in
-        ""|G|g|Gemini|gemini)
+        ""|g|G|gemini|Gemini)
             echo "gemini"
+            ;;
+        q|Q|qodo|Qodo)
+            echo "qodo --chat"
+            ;;
+        o|O|opencode|OpenCode)
+            echo "opencode"
             ;;
         *)
             echo ""  # unknown
@@ -41,7 +51,7 @@ for arg in "$@"; do
             exit 0
             ;;
         --version)
-            echo "AI version 1.0"
+            echo "AI version 1.4"
             exit 0
             ;;
     esac
@@ -51,11 +61,24 @@ done
 MODEL_INPUT=""
 
 # Get flags from user (options only)
-while getopts ":athwvm:" opt; do
+while getopts ":iathwvm:" opt; do
     case $opt in
+        i)
+            echo "Installing AI models..."
+            echo "sudo npm install "
+            echo " -> Installing Gemini"
+            echo "sudo npm install -g @google/gemini-cli"
+            echo " -> Installing Qodo"
+            echo "sudo npm install -g @qodo/command"
+            echo " -> Installing OpenCode"
+            echo "sudo npm i -g opencode-ai@latest"
+            exit 0
+            ;;
         a)
             echo "Available AI models:"
-            echo " - Gemini [Use: -m G | -m g | -m gemini]"
+            echo " - Gemini [Use: -m g | -m G | -m gemini]"
+            echo " - Qodo [Use: -m q | -m Q | -m qodo]"
+            echo " - OpenCode [Use: -m o | -m O | -m opencode]"
             exit 0
             ;;
         t)
@@ -90,7 +113,7 @@ shift $((OPTIND - 1))
 
 # Default model if not provided
 if [ -z "$MODEL_INPUT" ]; then
-    MODEL_INPUT="G"
+    MODEL_INPUT="g"  # Default to gemini
 fi
 MODEL_CMD=$(resolve_model_cmd "$MODEL_INPUT")
 
@@ -121,7 +144,7 @@ case "$action" in
             exit 1
         fi
         # Invoke selected model CLI
-        exec "$MODEL_CMD"
+        exec $MODEL_CMD
         ;;
     "")
         # No action selected; just show help
