@@ -86,7 +86,7 @@ alias ls='eza --icons=auto' # short list
 alias c='clear'
 alias lscreated='ls --sort=created'
 alias pokemon='pokemon-colorscripts -r'
-alias re="c && source ~/.zshrc"
+alias re="~ && c && source ~/.zshrc"
 alias cls="c && pokemon-colorscripts -r"
 
 #APPS
