@@ -88,6 +88,7 @@ alias lscreated='ls --sort=created'
 alias pokemon='pokemon-colorscripts -r'
 alias re="~ && c && source ~/.zshrc"
 alias cls="c && pokemon-colorscripts -r"
+alias open="xdg-open"
 
 #APPS
 alias vdow='yt-dlp'
@@ -97,6 +98,7 @@ alias iopen='eog'
 alias iedit='display'
 alias peaclock="peaclock --config-dir ~/.config/peaclock"
 alias ai='~/Fedora-Linux/Scripts/AI.sh'
+alias anime='jerry -w allanime'
 
 #SCRIPTS
 alias sysup='~/./Fedora-Linux/Scripts/update.sh'
