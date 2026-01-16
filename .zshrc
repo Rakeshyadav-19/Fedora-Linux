@@ -112,7 +112,3 @@ alias sangli='cd /home/rax/Abyss/Projects/Sponsored/Mini/Sai\ Skating\ WebSite/W
 
 #EXPORTS
 export PATH="${HOME}/.local/bin":${PATH}
-
-
-
-eval $(thefuck --alias)
