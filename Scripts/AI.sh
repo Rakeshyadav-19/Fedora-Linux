@@ -4,14 +4,16 @@
 show_help() {
     echo "Usage: ai [options] [-m model]"
     echo "Options:"
-    echo "  -i              Install AI model"
+    echo "  -i              Install all AI model"
     echo "  -a              Show available AI models"
     echo "  -t              Talk with AI in temp/AI folder"
     echo "  -w              Work with AI in current folder"
     echo "  -m              Choose model alias:"
-    echo "                  g|G|gemini - Use Gemini"
-    echo "                  q|Q|qodo   - Use Qodo"
-    echo "                  o|O|opencode - Use OpenCode"
+    echo "                  g|G|gemini    - Use Gemini"
+    echo "                  q|Q|qodo      - Use Qodo"
+    echo "                  o|O|opencode  - Use OpenCode"
+    echo "                  j|J|jules     - Use Jules"
+    echo "                  c|C|copilot   - Use Github Copilot"
     echo "  -h, --help      Show this help message"
     echo "  -v, --version   Show version information"
     echo "Examples:"
@@ -37,6 +39,12 @@ resolve_model_cmd() {
         o|O|opencode|OpenCode)
             echo "opencode"
             ;;
+        j|J|jules|Jules)
+            echo "jules"
+            ;;
+        c|C|copilot|Copilot)
+            echo "copilot"
+            ;;
         *)
             echo ""  # unknown
             ;;
@@ -51,7 +59,7 @@ for arg in "$@"; do
             exit 0
             ;;
         --version)
-            echo "AI version 1.4"
+            echo "AI version 1.5"
             exit 0
             ;;
     esac
@@ -65,20 +73,25 @@ while getopts ":iathwvm:" opt; do
     case $opt in
         i)
             echo "Installing AI models..."
-            echo "sudo npm install "
             echo " -> Installing Gemini"
             echo "sudo npm install -g @google/gemini-cli"
             echo " -> Installing Qodo"
             echo "sudo npm install -g @qodo/command"
             echo " -> Installing OpenCode"
             echo "sudo npm i -g opencode-ai@latest"
+            echo " -> Installing Jules"
+            echo "sudo npm install -g @google/jules"
+            echo " -> Installing Github Copilot"
+            echo "sudo npm install -g @github/copilot"
             exit 0
             ;;
         a)
             echo "Available AI models:"
-            echo " - Gemini [Use: -m g | -m G | -m gemini]"
-            echo " - Qodo [Use: -m q | -m Q | -m qodo]"
-            echo " - OpenCode [Use: -m o | -m O | -m opencode]"
+            echo " - Gemini"
+            echo " - Qodo"
+            echo " - OpenCode"
+            echo " - Jules"
+            echo " - Github Copilot"
             exit 0
             ;;
         t)
